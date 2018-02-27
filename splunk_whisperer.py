@@ -219,6 +219,7 @@ def start_fake_deployment_server(port):
 
 def get_splunk_bundle_checksum(file_path):
     # Splunk bundle checksum is the higher half of the file's MD5 (64 bits) in decimal
+    # (source: https://answers.splunk.com/answers/113792/multiple-deployment-servers-checksum-mismatch-among-instances-of-apps.html#answer-113818)
     with open(file_path, 'rb') as f:
         data = f.read()
     
