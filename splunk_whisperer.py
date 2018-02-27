@@ -23,8 +23,8 @@ SCRIPT = './runme.sh'
 
 # leave these as is!
 CERT_FILE = 'splunk_whisperer.pem'
-SPLUNK_APP_NAME = '_server_app_test1'
-SPLUNK_SERVER_CLASS = 'test1'
+SPLUNK_SERVER_CLASS = 'a5105e8b9d40e1329780d62ea2265d8a' # avoid name collisions
+SPLUNK_APP_NAME = '_server_app_' + SPLUNK_SERVER_CLASS
 BUNDLE_FILE = None
 BUNDLE_CHECKSUM = None
 
@@ -218,7 +218,7 @@ def start_fake_deployment_server(port):
     return httpd
 
 def get_splunk_bundle_checksum(file_path):
-    # Splunk bundle checksum is the higher half of the file MD5 (64 bits) in decimal
+    # Splunk bundle checksum is the higher half of the file's MD5 (64 bits) in decimal
     with open(file_path, 'rb') as f:
         data = f.read()
     
